@@ -16,6 +16,7 @@
             <th>Price</th>
             <th>Description</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
         @foreach ($products as $product)
         <tr>
@@ -26,6 +27,13 @@
             <td>{{$product->price}}</td>
             <td>{{$product->description}}</td>
             <td><a href="{{route('product.edit', ['product' => $product])}}">Edit</a></td>
+            <td>
+                <form action="{{route('product.delete', ['product'=>$product])}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
             @endforeach
     </table>

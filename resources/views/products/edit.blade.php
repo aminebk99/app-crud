@@ -20,7 +20,7 @@
         </ul>
             @endif
     </div>
-    <form action="{{route('product.update')}}" method="post">
+    <form action="{{route('product.update', ['product'=>$product])}}" method="post">
         @csrf
         @method('put')
         <div>

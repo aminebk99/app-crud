@@ -48,8 +48,14 @@ class ProductController extends Controller
             'description' => 'nullable'
         ]);
         $product->update($data);
-        return redirect(route('products.index'))->with('seccess', "Product Updated Seccesseffuly");
+        return redirect(route('product.index'))->with('seccess', "Product Updated Seccesseffuly");
     }
 
-    
+    public function destroy(Product $product){
+        $product->delete();
+        return redirect(route('product.index'))->with('seccess', "Product deleted Seccesseffuly");
+
+    }
+
+
 }
